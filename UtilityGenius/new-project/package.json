@@ -4,8 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "allure:generate": "npx allure generate ./allure-results --clean",
-    "allure:open": "npx allure open ./allure-report"
   },
   "keywords": [],
   "author": "",
