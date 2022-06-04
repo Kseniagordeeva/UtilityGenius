@@ -1,7 +1,7 @@
-import { Locator, Page, expect } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 
 export class UtilityGeniusPagePO {
-  readonly page: Page;  
+  readonly page: Page;
   readonly utilityPage: Locator;
   readonly startNowLink: Locator;
   readonly letsgoLink: Locator;

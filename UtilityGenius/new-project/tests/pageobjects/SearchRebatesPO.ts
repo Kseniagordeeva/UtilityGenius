@@ -7,7 +7,6 @@ export class SearchRebatesPO {
     constructor(page:Page) {
         this.page = page;
         this.searchRebatesLink=page.locator("//ul[@class='Navbar_navList__17ESt']/li//a[text()='Search Rebates']")
-    
     }
     /**
      * Click on the Search rebates button

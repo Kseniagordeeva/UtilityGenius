@@ -1,13 +1,13 @@
-import { expect, Locator, Page } from "@playwright/test";
+import { Locator, Page } from "@playwright/test";
 import { LoginData } from "../pagedata/PageData";
 
-export class LoginPO {  
+export class LoginPO {
   readonly page: Page;
   readonly signInButton: Locator;
   readonly emailTextBox: Locator;
   readonly passwordTextBox: Locator;
   readonly loginButton: Locator;
-  readonly appLogo:Locator;
+  readonly appLogo: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,7 +15,7 @@ export class LoginPO {
     this.emailTextBox = page.locator("input[name='email']");
     this.passwordTextBox = page.locator("input[name='password']");
     this.loginButton = page.locator("button[type='submit']");
-    this.appLogo= page.locator("#logo");
+    this.appLogo = page.locator("#logo");
   }
   /**
    * Enter username, password, and click on the login button
@@ -43,9 +43,6 @@ export class LoginPO {
    * @returns  Error message
    */
   async getErrorMessage() {
-   return await this.page.$eval(
-      "div.auth0-global-message > span > span",
-      (el) => el.textContent.trim()      
-    );
+    return await this.page.$eval("div.auth0-global-message > span > span",(el) => el.textContent.trim());
   }
 }
