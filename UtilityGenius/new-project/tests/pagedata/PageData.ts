@@ -1,9 +1,18 @@
+import { randomString } from "../../helpers/util";
+
 export const LoginData = {
   email: "testdata@yopmail.com",
   password: "Android@123",
   invalidPassword: "123451",
   errorMessage: "Wrong email or password."
 };
+export const searchRebatesPageData = {
+  headerText: "Find a Program",
+  utility: "Pacific Gas & Electric Co."
+}
+export const allUtilityPageData = {
+  headerText: "Searching All Utilities"
+}
 export const pricingPageData = {
   headerText: "Pricing and Plans"
 }
@@ -22,6 +31,11 @@ export const FeedBackPageData = {
 }
 export const MyUtilityPageData = {
   headerText: "Favorite Utilities"
+}
+export const myWidgetPageData = {
+  headerText: "My Widgets",
+  widgetName: "Test" + randomString,
+  widgetLocation: "www.google.com"
 }
 
 

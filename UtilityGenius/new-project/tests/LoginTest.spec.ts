@@ -17,6 +17,7 @@ test.describe(`Verify Login Functionality`, () => {
 
     // Step 2: Verify home page URl
     await expect(page.url()).toEqual("https://app.utilitygenius.com/")
+    await Login.verifyImageLogoIsDisplayed()
 
   })
   test(`Verify that Error message is displayed when user enter invalid login credentials`, async ({ page }) => {

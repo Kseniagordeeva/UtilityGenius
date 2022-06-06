@@ -17,7 +17,17 @@ test.describe(`Verify Login Functionality`, () => {
 
         // Step 2: Verify home page URl
         await expect(page.url()).toEqual("https://app.utilitygenius.com/")
+        await Login.verifyImageLogoIsDisplayed()
 
+    })
+    test(`Verify the My Account page functionality`, async ({ page }) => {
+        const MyUtility = new MyUtilityPO(page)
+
+        // Step 1: Click on my account page and verify 
+        await MyUtility.clickOnMyAccountLink()
+
+        // Step 2: Verify My account page
+        expect(page.url()).toEqual("https://utilitygenius.com/my-account/edit-account/")
     })
 
     test(`Verify the My Utility page functionality`, async ({ page }) => {

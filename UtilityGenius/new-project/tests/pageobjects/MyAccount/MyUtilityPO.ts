@@ -20,6 +20,13 @@ export class MyUtilityPO {
         await this.page.waitForTimeout(2000)
     }
     /**
+     * Click on my account link
+     */
+    async clickOnMyAccountLink() {
+        await this.myAccountLink.click()
+        await this.page.waitForTimeout(3000)
+    }
+    /**
      * Click on the my utility button
      */
     async clickOnMyUtilityLink() {

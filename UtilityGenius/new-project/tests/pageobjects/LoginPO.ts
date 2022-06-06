@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
 import { LoginData } from "../pagedata/PageData";
 
 export class LoginPO {
@@ -43,6 +43,13 @@ export class LoginPO {
    * @returns  Error message
    */
   async getErrorMessage() {
-    return await this.page.$eval("div.auth0-global-message > span > span",(el) => el.textContent.trim());
+    return await this.page.$eval("div.auth0-global-message > span > span", (el) => el.textContent.trim());
+  }
+  /**
+   * Verify image logo is displayed
+   */
+  async verifyImageLogoIsDisplayed() {
+    var locator = await this.page.locator("header > div >div:nth-child(1) img")
+    await expect(locator).toBeVisible();
   }
 }
