@@ -1,5 +1,5 @@
 import { expect, Locator, Page } from "@playwright/test";
-import { LoginData } from "../pagedata/PageData";
+import { LoginData , CreateFreeAccountData} from "../pagedata/PageData";
 
 export class LoginPO {
   readonly page: Page;
@@ -8,6 +8,7 @@ export class LoginPO {
   readonly passwordTextBox: Locator;
   readonly loginButton: Locator;
   readonly appLogo: Locator;
+  readonly upgradeAccountBtn: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -16,6 +17,7 @@ export class LoginPO {
     this.passwordTextBox = page.locator("input[name='password']");
     this.loginButton = page.locator("button[type='submit']");
     this.appLogo = page.locator("#logo");
+    this.upgradeAccountBtn = page.locator(".Navbar_topMenuTryButton__1kCAG >> nth=1");
   }
   /**
    * Enter username, password, and click on the login button
@@ -27,6 +29,16 @@ export class LoginPO {
     await this.loginButton.click();
     await this.page.waitForTimeout(11000)
   }
+   /**
+   * Enter username, password, and click on the login button
+   */
+    async enterLoginCredentialsAndClickOnLoginButtonFreeAccount() {
+      await this.signInButton.click();
+      await this.emailTextBox.fill(CreateFreeAccountData.email);
+      await this.passwordTextBox.fill(CreateFreeAccountData.password);
+      await this.loginButton.click();
+      await this.page.waitForTimeout(11000)
+    }
   /**
    * Enter invalid login credentials and click on the login button
    */
@@ -51,5 +63,11 @@ export class LoginPO {
   async verifyImageLogoIsDisplayed() {
     var locator = await this.page.locator("header > div >div:nth-child(1) img")
     await expect(locator).toBeVisible();
+  }
+  /**
+   * Verify upgrade account button is displayed
+   */
+  async verifyUpgradeAccountVisible(){
+    await expect(this.upgradeAccountBtn).toBeVisible();
   }
 }

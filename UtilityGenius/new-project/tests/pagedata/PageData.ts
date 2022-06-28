@@ -1,4 +1,4 @@
-import { randomString } from "../../helpers/util";
+import { randomString ,currentTime } from "../../helpers/util";
 
 export const LoginData = {
   email: "testdata@yopmail.com",
@@ -38,6 +38,13 @@ export const myWidgetPageData = {
   widgetLocation: "www.google.com"
 }
 
+export const CreateFreeAccountData = {
+  email : `sh${currentTime}@yopmail.com`,
+  password : 'Password123',
+  fullName : 'Siam Hasan',
+  createFreeAccount : 'Create Free Account',
+  googleSignUpButtonText : 'Sign up with Google'
+}
 
 
 

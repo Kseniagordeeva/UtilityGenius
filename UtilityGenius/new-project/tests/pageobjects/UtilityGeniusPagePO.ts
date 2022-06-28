@@ -5,6 +5,7 @@ export class UtilityGeniusPagePO {
   readonly utilityPage: Locator;
   readonly startNowLink: Locator;
   readonly letsgoLink: Locator;
+  readonly selectState: Locator;
 
   constructor(page: Page) {
     this.utilityPage = page.locator(
@@ -15,6 +16,9 @@ export class UtilityGeniusPagePO {
     );
     this.letsgoLink = page.locator(
       "//a[@class='et_pb_button et_pb_button_9 et_hover_enabled et_pb_bg_layout_dark']"
+    );
+    this.selectState = page.locator(
+      "//div[@class='css-kaqmzc-indicatorContainer']"
     );
   }
   /**

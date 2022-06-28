@@ -10,6 +10,9 @@ export class SearchRebatesPO {
     readonly searchUtility: Locator
     readonly countryOption: Locator
     readonly allUtilityButton: Locator
+    readonly selectStateInput : Locator
+    readonly pecoEnergyLink : Locator;
+    readonly lightingWidget : Locator;
 
     constructor(page: Page) {
         this.page = page;
@@ -21,6 +24,9 @@ export class SearchRebatesPO {
         this.searchUtility = page.locator("//span[text()='All Results']/parent::div//div")
         this.countryOption = page.locator("//span[text()='Canada']")
         this.allUtilityButton = page.locator("span button")
+        this.selectStateInput = page.locator("#react-select-2-input")
+        this.pecoEnergyLink = page.locator("//h3[text()='PECO Energy Co']")
+        this.lightingWidget = page.locator("//h3[text()='Lighting']");
     }
     /**
      * Click on the Search rebates button
@@ -37,7 +43,33 @@ export class SearchRebatesPO {
         return await this.page.$eval('div.Home_headingWrap__3H25g > h1', (el) => el.textContent.trim())
     }
     /**
-     * Click on the select state srop down
+     * Click on the select state drop down #
+     */
+     async clickOnSelectStateDropDownAndType() {
+        await this.selectStateDropDown.click()
+        await this.selectStateInput.type("Pennsylvania");
+        await this.page.keyboard.press('Enter');
+        await this.page.waitForTimeout(2000);
+
+    }
+    /**
+     * Click on the peco energy link #
+     */
+    async clickOnPecoEnergy() {
+        await this.pecoEnergyLink.click();
+        await this.page.waitForTimeout(2000);
+
+    }
+    /**
+     * Click on the peco lighting widget #
+     */
+    async clickOnLightingWidget() {
+        await this.lightingWidget.click();
+        await this.page.waitForTimeout(2000);
+
+    }
+    /**
+     * Click on the select state drop down and Select state
      */
     async clickOnSelectStateDropDownAndSelectState() {
         await this.selectStateDropDown.click()
